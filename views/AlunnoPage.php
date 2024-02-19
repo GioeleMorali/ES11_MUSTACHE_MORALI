@@ -1,10 +1,10 @@
 <?php
-class Home extends Mustache_Engine
+class AlunnoPage extends Mustache_Engine
 {
 
     protected $data=[];
 
-    function render($templates="./templates/home.mst",$data=[]){
+    function render($templates="./templates/alunno.mst",$data=[]){
         $template = file_get_contents($templates);
         return parent::render($template, $this->data);
 

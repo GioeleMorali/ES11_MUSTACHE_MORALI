@@ -15,5 +15,16 @@ class Classe{
    public function getArray(){
     return $this->arrayy;
    }
+
+   public function findByName($name){
+    $alunno = null;
+    foreach($this->arrayy as $alunno_nome){
+        if($alunno_nome->getNome() == $name)
+        {
+            $alunno = $alunno_nome;
+        }
+    }
+    return $alunno;
+   }
 }
 ?>
