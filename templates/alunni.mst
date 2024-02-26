@@ -1,5 +1,6 @@
-<h1 style=\"font-size:50px\";>Elenco alunni!</h1>
+<h1 style="font-size:50px; color:green; text-align:center";>Elenco alunni!</h1>
 {{{html}}}
+<body style="background-color:pink">
 <p> Elenco alunni by Gioele</p>
 <ul>
 {{#getArray}}
