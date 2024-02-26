@@ -25,7 +25,7 @@ class AlunniController
      * @link /alunni/search[/{nome}]
      * @method GET
      */
-    function findByName(Request $request, Response $response, $args) {
+    function json_findByName(Request $request, Response $response, $args) {
         $params = isset($_GET['nome'])?$_GET:null;
         $nome = isset($args['nome'])?$args['nome']:$params['nome'];
         $classe = new Classe();
@@ -33,6 +33,21 @@ class AlunniController
         //$arrayy = $classe->getArray();
         $response->getBody()->write(json_encode($data));
         return $response->withHeader("Content-type", "application/json")->withStatus(200);
+    }
+    function findByName(Request $request, Response $response, $args) {
+        $params = isset($_GET['nome'])?$_GET:null;
+        $nome = isset($args['nome'])?$args['nome']:$params['nome'];
+        $classe = new Classe();
+        $data['Alunno'] = $classe->findByName($nome);
+        //$arrayy = $classe->getArray();
+        
+        $view = new AlunnoPage();
+        $view->setData($data);
+
+        $mainPage = new MainPage();
+        $mainPage->set("body", $view->render());
+        $response->getBody()->write($mainPage->render());
+        return $response;
     }
     function json_alunni(Request $request, Response $response, $args)
     {

@@ -25,5 +25,5 @@ $app->get('/', 'HomeController:index');
 $app->get('/alunni/search[/{nome}]', 'AlunniController:findByName');
 $app->get('/alunni', 'AlunniController:index');
 $app->get('/json/alunni', 'AlunniController:json_alunni');
-$app->get('/json/alunni/search[/{nome}]', 'AlunniController:findByName');
+$app->get('/json/alunni/{nome}', 'AlunniController:json_findByName');
 $app->run();
