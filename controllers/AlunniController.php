@@ -31,13 +31,13 @@ class AlunniController
         $classe = new Classe();
         $data['Alunno'] = $classe->findByName($nome);
         //$arrayy = $classe->getArray();
-        
-        $view = new AlunnoPage();
-        $view->setData($data);
-
-        $mainPage = new MainPage();
-        $mainPage->set("body", $view->render());
-        $response->getBody()->write($mainPage->render());
-        return $response;
+        $response->getBody()->write(json_encode($data));
+        return $response->withHeader("Content-type", "application/json")->withStatus(200);
+    }
+    function json_alunni(Request $request, Response $response, $args)
+    {
+        $classe = new Classe();
+        $response->getBody()->write(json_encode($classe));
+        return $response->withHeader("Content-type", "application/json")->withStatus(200);
     }
 }

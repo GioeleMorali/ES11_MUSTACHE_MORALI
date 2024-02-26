@@ -1,7 +1,7 @@
 <?php
 require("Alunno.php");
 class Classe{
-    protected $arrayy = [];
+    public $arrayy = [];
     public function __construct(){
         $a1 = new Alunno("Gianlu", "Gianne", 18);
         $a2 = new Alunno("Gabri", "Lolla", 16);
