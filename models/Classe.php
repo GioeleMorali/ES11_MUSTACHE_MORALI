@@ -26,5 +26,41 @@ class Classe{
     }
     return $alunno;
    }
+   public function addAlunno($alunno)
+   {
+        array_push($this->arrayy, $alunno);
+   }
+   public function modificaAlunno($alunnoPassato)
+   {
+      foreach($this->arrayy as $alunno)
+      {
+        if($alunno->getNome() == $alunnoPassato->getNome())
+        {
+            $alunno->setCognome($alunnoPassato->getCognome());
+            $alunno->setEta($alunnoPassato->getEta());
+            return $alunno;
+        }
+      }
+      return null;
+   }
+   public function cancellaAlunno($alunnoPassato)
+   {
+      $trovato=false;
+      foreach($this->arrayy as $i => $alunno)
+      {
+        if($alunno->getNome() == $alunnoPassato->getNome())
+        {
+            $trovato = true;
+            break;
+        }
+      }
+
+      if($trovato)
+      {
+         unset($this->arrayy[$i]);
+         return 1;
+      }
+    return null;
+   }
 }
 ?>

@@ -24,6 +24,9 @@ $app = AppFactory::create();
 $app->get('/', 'HomeController:index');
 $app->get('/alunni/search[/{nome}]', 'AlunniController:findByName');
 $app->get('/alunni', 'AlunniController:index');
-$app->get('/json/alunni', 'AlunniController:json_alunni');
-$app->get('/json/alunni/{nome}', 'AlunniController:json_findByName');
+
+$app->post('/alunni', 'AlunniController:post_alunni');
+$app->put('/alunni/{nome}', 'AlunniController:put_alunno');
+$app->delete('/alunni/{nome}', 'AlunniController:delete_alunno');
+
 $app->run();
